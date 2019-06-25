@@ -220,7 +220,8 @@ public class PlatzVerkaufsWerkzeug
     {
         Set<Platz> plaetze = _ui.getPlatzplan().getAusgewaehltePlaetze();
     	
-    	if(new BezahlungsWerkzeug().bezahle(vorstellung.getPreisFuerPlaetze(plaetze)))
+    	BezahlungsWerkzeug bezahlungsWerkzeug = new BezahlungsWerkzeug();
+		if(bezahlungsWerkzeug.bezahleErfolgreich(vorstellung.getPreisFuerPlaetze(plaetze)))
     	{
 	        vorstellung.verkaufePlaetze(plaetze);
 	        aktualisierePlatzplan();
